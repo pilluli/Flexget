@@ -42,6 +42,7 @@ class InputPogDesign(object):
         for row in soup.find_all('label', {'class': 'label_check'}):
             if row.find(attrs={'checked': 'checked'}):
                 t = row.find('strong').text
+                t = t.replace('\n', '').strip()
                 if t.endswith('[The]'):
                     t = 'The ' + t[:-6]
 
